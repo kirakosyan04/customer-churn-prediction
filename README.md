@@ -43,7 +43,6 @@ customer-churn-prediction/
 │       └── WA_Fn-UseC_-Telco-Customer-Churn.csv
 ├── models/
 │   └── churn_pipeline.joblib
-├── notebooks/
 ├── src/
 │   ├── ablation_study.py
 │   ├── calibration.py
