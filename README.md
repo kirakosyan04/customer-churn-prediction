@@ -1,3 +1,4 @@
+[![CI](https://github.com/kirakosyan04/customer-churn-prediction/actions/workflows/ci.yml/badge.svg)](https://github.com/kirakosyan04/customer-churn-prediction/actions/workflows/ci.yml)
 # Customer Churn Prediction
 
 An end-to-end machine learning project for predicting customer churn using the Telco Customer Churn dataset.
