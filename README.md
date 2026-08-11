@@ -42,10 +42,6 @@ data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
 - Target: Churn
 - Task: Binary classification
 
-The target variable Churn indicates whether a customer leaves the service.
-
-The raw dataset is included in the repository for reproducibility and CI testing.
-
 ## Project Structure
 
 ```text
