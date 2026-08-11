@@ -25,14 +25,6 @@ The project covers the complete machine learning workflow:
 
 This project uses the **Telco Customer Churn** dataset
 
-The dataset is not included in this repository.
-
-**Dataset source:** Kaggle — Telco Customer Churn
-
-After downloading the dataset, place the CSV file at:
-
-```text
-data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
 ```
 
 
@@ -46,6 +38,9 @@ data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
 
 ```text
 customer-churn-prediction/
+├── data/
+│   └── raw/
+│       └── WA_Fn-UseC_-Telco-Customer-Churn.csv
 ├── models/
 │   ├── churn_pipeline.joblib
 │   └── xgboost_model.json
