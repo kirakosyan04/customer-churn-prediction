@@ -35,6 +35,7 @@ customer-churn-prediction/
 │
 ├── data/
 │   └── raw/
+│       └── WA_Fn-UseC_-Telco-Customer-Churn.csv
 │
 ├── models/
 │   └── churn_pipeline.joblib
@@ -68,6 +69,7 @@ customer-churn-prediction/
 │
 ├── requirements.txt
 └── README.md
+
 
 ## Machine Learning Workflow
 
