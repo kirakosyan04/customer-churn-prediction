@@ -25,7 +25,7 @@ The project covers the complete machine learning workflow:
 
 This project uses the **Telco Customer Churn** dataset
 
-```
+
 
 
 
