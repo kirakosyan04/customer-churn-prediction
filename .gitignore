@@ -40,7 +40,6 @@ build/
 .ruff_cache/
 
 # Raw datasets
-data/raw/*.csv
 
 # Local processed dataset
 data/customer_churn.csv
