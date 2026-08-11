@@ -31,17 +31,14 @@ The raw dataset is excluded from Git using `.gitignore`.
 
 ## Project Structure
 
+```text
 customer-churn-prediction/
-│
 ├── data/
 │   └── raw/
 │       └── WA_Fn-UseC_-Telco-Customer-Churn.csv
-│
 ├── models/
 │   └── churn_pipeline.joblib
-│
 ├── notebooks/
-│
 ├── src/
 │   ├── ablation_study.py
 │   ├── calibration.py
@@ -60,15 +57,14 @@ customer-churn-prediction/
 │   ├── threshold_optimization.py
 │   ├── train.py
 │   └── tuning.py
-│
 ├── tests/
 │   ├── test_data_validation.py
 │   ├── test_feature_engineering.py
 │   ├── test_model.py
 │   └── test_preprocessing.py
-│
 ├── requirements.txt
 └── README.md
+```
 
 
 ## Machine Learning Workflow
