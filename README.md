@@ -21,13 +21,18 @@ The project covers the complete machine learning workflow:
 - Reproducible model configuration
 - Final model pipeline
 
-## Dataset
+Dataset
 
 The project uses the Telco Customer Churn dataset.
 
-The target variable is `Churn`, which indicates whether a customer leaves the service.
+Samples: 7,043
+Features: 20 input features
+Target: Churn
+Task: Binary classification
 
-The raw dataset is excluded from Git using `.gitignore`.
+The target variable Churn indicates whether a customer leaves the service.
+
+The raw dataset is included in the repository for reproducibility and CI testing.
 
 ## Project Structure
 
