@@ -23,7 +23,10 @@ The project covers the complete machine learning workflow:
 
 ## Dataset
 
-The project uses the Telco Customer Churn dataset.
+The dataset used in this project is the Telco Customer Churn dataset.
+[Download the Telco Customer Churn dataset](https://www.kaggle.com/datasets/palashfendarkar/wa-fnusec-telcocustomerchurn?utm_source=chatgpt.com)
+After downloading, place the CSV file at:
+data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
 
 - Samples: 7,043
 - Features: 20 input features
@@ -39,7 +42,8 @@ The raw dataset is included in the repository for reproducibility and CI testing
 ```text
 customer-churn-prediction/
 ├── models/
-│   └── churn_pipeline.joblib
+│   ├── churn_pipeline.joblib
+│   └── xgboost_model.json
 ├── src/
 │   ├── ablation_study.py
 │   ├── calibration.py
@@ -63,6 +67,7 @@ customer-churn-prediction/
 │   ├── test_feature_engineering.py
 │   ├── test_model.py
 │   └── test_preprocessing.py
+├── .gitignore
 ├── requirements.txt
 └── README.md
 ```
