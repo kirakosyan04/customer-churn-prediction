@@ -23,10 +23,19 @@ The project covers the complete machine learning workflow:
 
 ## Dataset
 
-The dataset used in this project is the Telco Customer Churn dataset.
-[Download the Telco Customer Churn dataset](https://www.kaggle.com/datasets/palashfendarkar/wa-fnusec-telcocustomerchurn?utm_source=chatgpt.com)
-After downloading, place the CSV file at:
+This project uses the **Telco Customer Churn** dataset
+
+The dataset is not included in this repository.
+
+**Dataset source:** Kaggle — Telco Customer Churn
+
+After downloading the dataset, place the CSV file at:
+
+```text
 data/raw/WA_Fn-UseC_-Telco-Customer-Churn.csv
+```
+
+
 
 - Samples: 7,043
 - Features: 20 input features
