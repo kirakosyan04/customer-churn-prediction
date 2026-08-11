@@ -1,5 +1,5 @@
-import shap
 import pandas as pd
+import shap
 
 
 def explain_xgboost(pipeline, X):

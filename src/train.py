@@ -1,9 +1,16 @@
-from preprocessing import load_and_preprocess_data
-from evaluate import evaluate_model, evaluate_threshold, find_best_threshold
-from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, roc_auc_score
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import (
+    accuracy_score,
+    f1_score,
+    precision_score,
+    recall_score,
+    roc_auc_score,
+)
 from xgboost import XGBClassifier
+
+from evaluate import evaluate_model, evaluate_threshold, find_best_threshold
+from preprocessing import load_and_preprocess_data
 
 X_train, X_test, y_train, y_test, preprocessor = load_and_preprocess_data()
 
@@ -23,7 +30,6 @@ print("Recall:", recall_score(y_test, y_pred))
 print("F1:", f1_score(y_test, y_pred))
 print("ROC-AUC:", roc_auc_score(y_test, y_prob))
 
-from sklearn.ensemble import RandomForestClassifier
 
 rf_model = RandomForestClassifier(
     n_estimators=300,

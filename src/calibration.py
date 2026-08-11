@@ -1,10 +1,10 @@
 from sklearn.calibration import CalibratedClassifierCV
+from sklearn.metrics import brier_score_loss, roc_auc_score
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import roc_auc_score, brier_score_loss
 from xgboost import XGBClassifier
 
-from preprocessing import load_data, create_preprocessor
+from preprocessing import create_preprocessor, load_data
 
 
 def evaluate_calibration():

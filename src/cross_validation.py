@@ -1,15 +1,13 @@
 import pandas as pd
-
-from sklearn.base import clone
-from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import (
     f1_score,
     roc_auc_score,
 )
+from sklearn.model_selection import StratifiedKFold
 from sklearn.pipeline import Pipeline
-
-from preprocessing import load_data, create_preprocessor
 from xgboost import XGBClassifier
+
+from preprocessing import create_preprocessor, load_data
 
 
 def run_cross_validation():

@@ -1,12 +1,11 @@
 import logging
-import joblib
 
+import joblib
 from sklearn.pipeline import Pipeline
 from xgboost import XGBClassifier
 
-from preprocessing import load_data, create_preprocessor
 from feature_engineering import ChurnFeatureEngineer
-
+from preprocessing import create_preprocessor, load_data
 
 logging.basicConfig(
     level=logging.INFO,

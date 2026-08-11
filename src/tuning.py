@@ -1,10 +1,9 @@
-import pandas as pd
 
 from sklearn.model_selection import RandomizedSearchCV, StratifiedKFold
 from sklearn.pipeline import Pipeline
 from xgboost import XGBClassifier
 
-from preprocessing import load_data, create_preprocessor
+from preprocessing import create_preprocessor, load_data
 
 
 def tune_xgboost():

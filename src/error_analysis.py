@@ -1,11 +1,10 @@
-import pandas as pd
 
+from sklearn.metrics import confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
-from sklearn.metrics import confusion_matrix
 from xgboost import XGBClassifier
 
-from preprocessing import load_data, create_preprocessor
+from preprocessing import create_preprocessor, load_data
 
 
 def analyze_errors():

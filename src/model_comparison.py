@@ -1,12 +1,11 @@
 import pandas as pd
-
-from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier
+from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import StratifiedKFold, cross_validate
 from sklearn.pipeline import Pipeline
 from xgboost import XGBClassifier
 
-from preprocessing import load_data, create_preprocessor
+from preprocessing import create_preprocessor, load_data
 
 
 def compare_models():
