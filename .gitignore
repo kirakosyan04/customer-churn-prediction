@@ -44,3 +44,7 @@ data/raw/*.csv
 
 # Local processed dataset
 data/customer_churn.csv
+
+__pycache__/
+*.py[cod]
+.pytest_cache/
