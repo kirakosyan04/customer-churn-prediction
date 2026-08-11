@@ -1,3 +1,4 @@
+import logging
 import joblib
 
 from sklearn.pipeline import Pipeline
@@ -7,9 +8,15 @@ from preprocessing import load_data, create_preprocessor
 from feature_engineering import ChurnFeatureEngineer
 
 
-def build_pipeline(X):
-    feature_engineer = ChurnFeatureEngineer()
+logging.basicConfig(
+    level=logging.INFO,
+    format="%(asctime)s - %(levelname)s - %(message)s"
+)
 
+logger = logging.getLogger(__name__)
+
+
+def build_pipeline(X):
     model = XGBClassifier(
         n_estimators=300,
         max_depth=3,
@@ -22,24 +29,29 @@ def build_pipeline(X):
     )
 
     return Pipeline([
-        ("feature_engineering", feature_engineer),
+        ("feature_engineering", ChurnFeatureEngineer()),
         ("preprocessor", create_preprocessor(X)),
         ("model", model)
     ])
 
 
 def train_and_save():
+    logger.info("Loading dataset")
     X, y = load_data()
 
+    logger.info("Building pipeline")
     pipeline = build_pipeline(X)
+
+    logger.info("Training model")
     pipeline.fit(X, y)
 
+    logger.info("Saving model")
     joblib.dump(
         pipeline,
         "models/churn_pipeline.joblib"
     )
 
-    print("Pipeline saved to models/churn_pipeline.joblib")
+    logger.info("Pipeline saved successfully")
 
 
 if __name__ == "__main__":
