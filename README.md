@@ -38,9 +38,6 @@ The raw dataset is included in the repository for reproducibility and CI testing
 
 ```text
 customer-churn-prediction/
-├── data/
-│   └── raw/
-│       └── WA_Fn-UseC_-Telco-Customer-Churn.csv
 ├── models/
 │   └── churn_pipeline.joblib
 ├── src/
