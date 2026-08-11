@@ -1,0 +1,46 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# IDE settings
+.vscode/
+.idea/
+
+# macOS
+.DS_Store
+
+# Temporary files
+tempCodeRunnerFile.py
+
+# Python packaging
+*.egg-info/
+dist/
+build/
+
+# Ruff
+.ruff_cache/
+
+# Raw datasets
+data/raw/*.csv
+
+# Local processed dataset
+data/customer_churn.csv
