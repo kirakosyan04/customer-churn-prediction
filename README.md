@@ -127,33 +127,6 @@ Three classification models were evaluated using stratified 5-fold cross-validat
 
 Random Forest achieved the highest F1-score and recall among the evaluated models.
 
-## Cross-Validation
-
-All three models were evaluated using 5-fold stratified cross-validation.
-
-Random Forest achieved the highest mean F1-score, while XGBoost achieved the highest mean ROC-AUC.
-
-| Model | F1 | ROC-AUC | Precision | Recall |
-|---|---:|---:|---:|---:|
-| Logistic Regression | 0.5996 | 0.8451 | 0.6575 | 0.5511 |
-| **Random Forest** | **0.6357** | 0.8448 | 0.5630 | **0.7303** |
-| XGBoost | 0.5929 | **0.8475** | **0.6667** | 0.5340 |
-
-## Hyperparameter Tuning
-
-XGBoost hyperparameters were tuned using cross-validation as part of the model comparison process.
-
-Best parameters:
-
-- n_estimators = 300
-- max_depth = 3
-- learning_rate = 0.05
-- subsample = 0.9
-- colsample_bytree = 0.8
-- min_child_weight = 5
-
-Best cross-validation F1: 0.5929
-
 ## Final Model
 
 Random Forest was selected as the final model based on its performance in the model comparison.
