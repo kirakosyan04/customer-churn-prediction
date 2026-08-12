@@ -43,7 +43,7 @@ customer-churn-prediction/
 │       └── WA_Fn-UseC_-Telco-Customer-Churn.csv
 ├── models/
 │   ├── churn_pipeline.joblib
-│   └── xgboost_model.json
+│   └── random_forest_model.json
 ├── src/
 │   ├── ablation_study.py
 │   ├── calibration.py
@@ -113,7 +113,7 @@ Calculates the average monthly charge based on `TotalCharges` and `tenure`.
 
 ## Models
 
-Three classification models were evaluated:
+Three classification models were evaluated using stratified 5-fold cross-validation:
 
 - Logistic Regression
 - Random Forest
@@ -122,21 +122,26 @@ Three classification models were evaluated:
 | Model | F1 | ROC-AUC | Precision | Recall |
 |---|---:|---:|---:|---:|
 | Logistic Regression | 0.5996 | 0.8451 | 0.6575 | 0.5511 |
-| Random Forest | 0.6357 | 0.8448 | 0.5630 | 0.7303 |
-| XGBoost | 0.5929 | 0.8475 | 0.6667 | 0.5340 |
+| **Random Forest** | **0.6357** | 0.8448 | 0.5630 | **0.7303** |
+| XGBoost | 0.5929 | **0.8475** | **0.6667** | 0.5340 |
+
+Random Forest achieved the highest F1-score and recall among the evaluated models.
 
 ## Cross-Validation
 
-XGBoost was evaluated using 5-fold stratified cross-validation.
+All three models were evaluated using 5-fold stratified cross-validation.
 
-| Metric | Mean | Std |
-|---|---:|---:|
-| F1 | 0.5946 | 0.0144 |
-| ROC-AUC | 0.8468 | 0.0048 |
+Random Forest achieved the highest mean F1-score, while XGBoost achieved the highest mean ROC-AUC.
+
+| Model | F1 | ROC-AUC | Precision | Recall |
+|---|---:|---:|---:|---:|
+| Logistic Regression | 0.5996 | 0.8451 | 0.6575 | 0.5511 |
+| **Random Forest** | **0.6357** | 0.8448 | 0.5630 | **0.7303** |
+| XGBoost | 0.5929 | **0.8475** | **0.6667** | 0.5340 |
 
 ## Hyperparameter Tuning
 
-XGBoost hyperparameters were tuned using cross-validation.
+XGBoost hyperparameters were tuned using cross-validation as part of the model comparison process.
 
 Best parameters:
 
@@ -149,44 +154,55 @@ Best parameters:
 
 Best cross-validation F1: 0.5929
 
-## Threshold Optimization
+## Final Model
 
-The classification threshold was optimized for F1 instead of using the default 0.5.
+Random Forest was selected as the final model based on its performance in the model comparison.
 
-Best threshold: 0.39
+The main objective is to identify customers who are likely to churn, making recall particularly important. A false negative means that a customer who is likely to churn was not identified.
 
-| Metric | Score |
-|---|---:|
-| F1 | 0.6247 |
-| Precision | 0.5803 |
-| Recall | 0.6765 |
+Random Forest achieved the highest recall and F1-score among the evaluated models:
+
+- **Recall:** 0.7380
+- **F1-score:** 0.6287
+- **Precision:** 0.5476
+- **ROC-AUC:** 0.8358
+- **Accuracy:** 0.7683
+
+Therefore, Random Forest was selected as the final model.
+
+## Threshold Optimization for XGBoost
+
+The classification threshold was optimized for XGBoost to improve churn detection performance.
+
+Instead of using the default threshold of 0.5, lower thresholds were evaluated.
+
+| Threshold | F1 | Precision | Recall |
+|---:|---:|---:|---:|
+| 0.50 | 0.5776 | 0.6317 | 0.5321 |
+| 0.40 | 0.6253 | 0.5833 | 0.6738 |
+| **0.38** | **0.6283** | 0.5696 | **0.7005** |
+
+Threshold optimization improved XGBoost's recall and F1-score. However, Random Forest still achieved higher recall (0.7380) and slightly higher F1-score (0.6287), so Random Forest was selected as the final model.
 
 ## Final Evaluation
 
-Using the optimized threshold of 0.39:
+The final Random Forest model was evaluated on the held-out test set.
 
 | Metric | Score |
 |---|---:|
-| Accuracy | 0.7839 |
-| Precision | 0.5803 |
-| Recall | 0.6765 |
-| F1 | 0.6247 |
-| ROC-AUC | 0.8376 |
-| Brier Score | 0.1401 |
+| Accuracy | 0.7683 |
+| Precision | 0.5476 |
+| Recall | 0.7380 |
+| F1 | 0.6287 |
+| ROC-AUC | 0.8358 |
+
+The model identifies a high proportion of customers who are likely to churn, which is important for proactive customer retention.
 
 ## Error Analysis
 
-At the optimized threshold:
+For churn prediction, false negatives are particularly important because they represent customers who are likely to churn but were not identified by the model.
 
-| | Predicted No | Predicted Yes |
-|---|---:|---:|
-| Actual No | 850 | 183 |
-| Actual Yes | 121 | 253 |
-
-- True Negatives: 850
-- False Positives: 183
-- False Negatives: 121
-- True Positives: 253
+The final Random Forest model achieved a recall of **0.7380**, meaning that it identified approximately 74% of the customers who actually churned in the test set.
 
 ## Model Explainability
 
@@ -222,13 +238,13 @@ Current test suite: 6 passed
 
 ## Training
 
-Train and save the final pipeline:
+Train the models using:
 
-PYTHONPATH=src python3 src/pipeline.py
+PYTHONPATH=src python3 src/train.py
 
-The trained pipeline is saved to:
+The final Random Forest model is saved to:
 
-models/churn_pipeline.joblib
+models/random_forest_model.joblib
 
 ## Configuration
 
