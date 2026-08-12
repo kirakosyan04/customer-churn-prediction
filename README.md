@@ -111,8 +111,6 @@ Random Forest achieved the highest recall and F1-score among the evaluated model
 - **ROC-AUC:** 0.8358
 - **Accuracy:** 0.7683
 
-Therefore, Random Forest was selected as the final model.
-
 ## Threshold Optimization for XGBoost
 
 The classification threshold was optimized for XGBoost to improve churn detection performance.
