@@ -72,33 +72,6 @@ customer-churn-prediction/
 └── README.md
 ```
 
-
-## Machine Learning Workflow
-
-Raw Data
-   ↓
-Data Validation
-   ↓
-Feature Engineering
-   ↓
-Preprocessing
-   ↓
-Cross-Validation
-   ↓
-Model Comparison
-   ↓
-Hyperparameter Tuning
-   ↓
-Threshold Optimization
-   ↓
-Calibration
-   ↓
-Final Evaluation
-   ↓
-Explainability
-   ↓
-Model Saving
-
 ## Feature Engineering
 
 Two additional features are created:
