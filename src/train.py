@@ -1,4 +1,5 @@
 
+import joblib
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
@@ -10,11 +11,9 @@ from sklearn.metrics import (
 )
 from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
-import joblib
 
 from evaluate import evaluate_model, evaluate_threshold, find_best_threshold
-from preprocessing import load_data, create_preprocessor
-
+from preprocessing import create_preprocessor, load_data
 
 # Load data
 X, y = load_data()
