@@ -10,12 +10,9 @@ The project covers the complete machine learning workflow:
 - Data validation
 - Feature engineering
 - Preprocessing
-- Cross-validation
 - Model comparison
-- Hyperparameter tuning
 - Threshold optimization
 - Probability calibration
-- Error analysis
 - SHAP explainability
 - Automated testing
 - Reproducible model configuration
@@ -129,26 +126,6 @@ Instead of using the default threshold of 0.5, lower thresholds were evaluated.
 | **0.38** | **0.6283** | 0.5696 | **0.7005** |
 
 Threshold optimization improved XGBoost's recall and F1-score. However, Random Forest still achieved higher recall (0.7380) and slightly higher F1-score (0.6287), so Random Forest was selected as the final model.
-
-## Final Evaluation
-
-The final Random Forest model was evaluated on the held-out test set.
-
-| Metric | Score |
-|---|---:|
-| Accuracy | 0.7683 |
-| Precision | 0.5476 |
-| Recall | 0.7380 |
-| F1 | 0.6287 |
-| ROC-AUC | 0.8358 |
-
-The model identifies a high proportion of customers who are likely to churn, which is important for proactive customer retention.
-
-## Error Analysis
-
-For churn prediction, false negatives are particularly important because they represent customers who are likely to churn but were not identified by the model.
-
-The final Random Forest model achieved a recall of **0.7380**, meaning that it identified approximately 74% of the customers who actually churned in the test set.
 
 ## Model Explainability
 
